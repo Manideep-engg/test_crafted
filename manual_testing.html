@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Crafted - Online Learning Course Platform</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  integrity="sha512-ac8mDw5f5u0+Sf0h1O1hsH7p6rjAp6LM7nH1gDD7Y/+nqXg6yN2LS9i6l96n6ug3H+p0rxShlmmkDW7+TAAh1g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"/>
+
+  <style>
+    /* -------------------------- 
+       Global Reset & Basic Styles
+    --------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      background-color: #fff;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* -------------------------- 
+       Top Bar 
+    --------------------------- */
+    .top-bar {
+      background-color: black;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .top-bar .contact-info {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .top-bar .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: white;
+    }
+
+    /* -------------------------- 
+       Header & Navigation
+    --------------------------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .logo h1 {
+      font-size: 1.5rem;
+      color: #2a2a2a;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      font-weight: 500;
+      color: #2a2a2a;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+	  background-color: #007bff; /* Blue background on hover */
+	  color: white !important; /* White text on hover */
+	  padding: 10px 15px; /* Ensure proper padding */
+	  border-radius: 5px; /* Rounded corners */
+    }
+    .btn-get-skilled {
+      background-color: #333;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .btn-get-skilled:hover {
+      background-color: #007bff;
+    }
+	
+	/* Dropdown Menu */
+	  .dropdown {
+		position: relative;
+	  }
+
+	  .dropbtn {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	  }
+
+	  .arrow {
+		transition: transform 0.3s ease;
+	  }
+
+	  .dropdown:hover .arrow {
+		transform: rotate(180deg);
+	  }
+
+		  .dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background: rgba(20, 20, 20, 0.95);
+	  min-width: 260px; /* Increased width */
+	  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+	  border-radius: 10px;
+	  overflow: hidden;
+	  top: 45px;
+	  left: 0;
+	  z-index: 1000;
+	  padding: 8px 0; /* Added padding for better spacing */
+	}
+
+	.dropdown-content li {
+	  display: flex;
+	  align-items: center;
+	  padding: 12px 20px; /* Adjusted padding */
+	  transition: 0.3s;
+	  white-space: nowrap; /* Prevents text from breaking */
+	}
+
+	.dropdown-content li a {
+	  display: flex;
+	  align-items: center;
+	  gap: 12px;
+	  color: white;
+	  font-size: 1rem;
+	  width: 100%;
+	  transition: 0.3s;
+	  text-decoration: none;
+	  padding: 10px 15px; /* Ensures text alignment */
+	}
+
+	.dropdown-content li:hover {
+	  background: rgba(255, 255, 255, 0.1);
+	}
+
+	/* Ensure text is well-spaced */
+	.dropdown-content li a i {
+	  font-size: 1.2rem;
+	}
+
+	/* Dropdown Hover Effect */
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	  animation: fadeIn 0.3s ease-in-out;
+	}
+
+	/* Keyframe Animation */
+	@keyframes fadeIn {
+	  from {
+		opacity: 0;
+		transform: translateY(10px);
+	  }
+	  to {
+		opacity: 1;
+		transform: translateY(0);
+	  }
+	}
+
+    /* -------------------------- 
+       Hero Section
+    --------------------------- */
+    .hero {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 80vh;
+		background: linear-gradient(to right, #f9f9f9, #eef1f5);
+		padding: 50px 5%;
+	  }
+
+	  .hero-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1200px;
+		width: 100%;
+	  }
+
+	  .hero-text {
+		flex: 1;
+		max-width: 50%;
+	  }
+
+	  .hero-heading {
+		font-size: 2.5rem;
+		font-weight: bold;
+		color: #222;
+	  }
+
+	  .hero-list {
+		list-style: none;
+		padding: 0;
+		font-size: 1.2rem;
+		line-height: 1.8;
+		color: #444;
+	  }
+
+	  .hero-button {
+		display: inline-block;
+		padding: 12px 24px;
+		font-size: 1.2rem;
+		background: #007bff;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 8px;
+		margin-top: 20px;
+		transition: 0.3s;
+	  }
+
+	  .hero-button:hover {
+		background: #0056b3;
+	  }
+
+	  .hero-image {
+		flex: 1;
+		text-align: center;
+		max-width: 50%;
+	  }
+
+	  .main-hero {
+		width: 100%;
+		max-width: 500px;
+		border-radius: 15px;
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+	  }
+
+	  @media (max-width: 768px) {
+		.hero-container {
+		  flex-direction: column;
+		  text-align: center;
+		}
+		.hero-text, .hero-image {
+		  max-width: 100%;
+		}
+		.main-hero {
+		  max-width: 300px;
+		}
+	  }
+	
+	/* Job Roles Section - Modern Style */
+	.job-roles {
+	  background: linear-gradient(135deg, #0d47a1, #1976d2);
+	  color: #fff;
+	  padding: 4rem 1rem;
+	  text-align: center;
+	}
+
+	.job-roles .container {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	}
+
+	.job-roles h2 {
+	  font-size: 2.5rem;
+	  font-weight: 700;
+	  margin-bottom: 2rem;
+	}
+
+	.roles-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 1.5rem;
+	  justify-content: center;
+	}
+
+	.role-item {
+	  background: rgba(255, 255, 255, 0.2);
+	  padding: 1rem 2rem;
+	  border-radius: 12px;
+	  font-size: 1.1rem;
+	  font-weight: 500;
+	  transition: background 0.3s ease, transform 0.3s ease;
+	  min-width: 180px;
+	  cursor: pointer;
+	}
+
+	.role-item:hover {
+	  background: rgba(255, 255, 255, 0.3);
+	  transform: translateY(-5px);
+	}
+	
+	/* Curriculum Section */
+    .curriculum-section {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Curriculum Heading */
+    .curriculum-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .curriculum-heading h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Accordion Styles */
+    .accordion {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #eee;
+    }
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Accordion Header */
+    .accordion-header {
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      background: #fafafa;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+    }
+    .accordion-header:hover {
+      background: #f0f0f0;
+    }
+
+    /* Chevron Icon */
+    .accordion-header .chevron {
+      transition: transform 0.3s;
+    }
+    .accordion-header.active .chevron {
+      transform: rotate(90deg);
+    }
+
+    /* Accordion Content */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 1.5rem;
+    }
+    .accordion-content.open {
+      padding: 1rem 1.5rem;
+    }
+    .accordion-content ul {
+      list-style: disc inside;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .accordion-content h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .accordion-header {
+        font-size: 0.95rem;
+      }
+    }
+
+
+    /* -------------------------- 
+       Courses Section
+    --------------------------- */
+    .courses {
+      padding: 3rem 2rem;
+      background-color: #fafafa;
+      text-align: center;
+    }
+	/* Modern Buttons Row */
+	.btn-row {
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-start; /* or center, if you prefer */
+		margin-top: 1rem;
+	}
+
+	/* Modern Button Style */
+	.btn-modern {
+	  display: inline-flex;          /* Align icon and text horizontally */
+	  align-items: center;           /* Vertically center icon and text */
+	  padding: 0.6rem 1.2rem;
+	  background-color: #007bff;
+	  color: #fff;
+	  border-radius: 4px;
+	  text-decoration: none;
+	  font-weight: 600;
+	  font-size: 0.9rem;
+	  transition: background 0.3s ease;
+	}
+
+	.btn-modern i {
+	  margin-right: 0.5rem;          /* Space between icon and text */
+	  font-size: 1rem;               /* Adjust icon size if needed */
+	}
+
+	.btn-modern:hover {
+	  background-color: #0056b3;
+	}
+
+
+    .courses h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+    .course-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .course-card {
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+    }
+    .course-card h3 {
+      margin-bottom: 1rem;
+      color: #007bff;
+      font-size: 1.2rem;
+    }
+    .course-card p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    .course-card a {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .course-card a:hover {
+      background-color: #0056b3;
+    }
+	
+/* -------------------------- 
+       Our Core Offerings Section
+    --------------------------- */
+	.trending-courses {
+	  padding: 3rem 2rem;
+	  background: #fff; /* or #fafafa to match your theme */
+	  text-align: center;
+	}
+
+	.trending-courses h2 {
+	  font-size: 2rem;
+	  margin-bottom: 0.5rem;
+	  color: #333;
+	}
+
+	.trending-courses p {
+	  color: #555;
+	  margin-bottom: 2rem;
+	}
+
+	.trending-container {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	}
+
+	/* Cards Container */
+	.trending-cards {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 2rem;
+	  justify-content: center;
+	}
+
+	/* Individual Card */
+	.trending-card {
+	  background: #f9f9f9;
+	  width: 270px;
+	  padding: 2rem;
+	  border-radius: 6px;
+	  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+	  text-align: center;
+	}
+
+	.trending-card img {
+	  display: block;
+	  margin: 0 auto 1rem;
+	  width: 60px;
+	  height: 60px;
+	  object-fit: contain; 
+	}
+
+	.trending-card h3 {
+	  margin-bottom: 1rem;
+	  color: #111111;
+	  font-size: 1.2rem;
+	}
+
+	.trending-card p {
+	  font-size: 0.95rem;
+	  color: #555;
+	  line-height: 1.4;
+	}
+
+	/* Responsive for Smaller Screens */
+	@media (max-width: 768px) {
+	  .trending-cards {
+		flex-direction: column;
+		align-items: center;
+	  }
+	  .trending-card {
+		width: 100%;
+		max-width: 400px;
+	  }
+	}
+
+	
+
+
+    /* -------------------------- 
+       Testimonials Section
+    --------------------------- */
+    .testimonials {
+	  background: #f9f9f9;
+	  padding: 60px 20px;
+	  text-align: center;
+	}
+
+	.container {
+	  max-width: 800px;
+	  margin: auto;
+	}
+
+	h2 {
+	  font-size: 26px;
+	  font-weight: bold;
+	  color: #333;
+	}
+
+	p {
+	  font-size: 16px;
+	  color: #666;
+	  margin-bottom: 25px;
+	}
+
+	/* Testimonial Slider */
+	.testimonial-slider {
+	  overflow: hidden;
+	  position: relative;
+	  max-width: 600px;
+	  margin: auto;
+	}
+
+	.testimonial-track {
+	  display: flex;
+	  transition: transform 0.5s ease-in-out;
+	}
+
+	.testimonial-card {
+	  min-width: 100%;
+	  background: white;
+	  padding: 20px;
+	  border-radius: 10px;
+	  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+	  margin: 10px;
+	}
+
+	.testimonial-name {
+	  font-weight: bold;
+	  color: #007bff;
+	}
+
+	/* Submit Button */
+	.btn-submit {
+	  width: 100%;
+	  padding: 12px;
+	  background: linear-gradient(135deg, #007bff, #0056b3);
+	  color: white;
+	  font-size: 18px;
+	  border: none;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: 0.3s;
+	}
+
+	.btn-submit:hover {
+	  background: linear-gradient(135deg, #0056b3, #003580);
+	}
+
+    /* -------------------------- 
+       Write a Review Section
+    --------------------------- */
+    .review-section {
+      padding: 3rem 2rem;
+      background: #fff;
+      text-align: center;
+    }
+    .review-section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .review-section p {
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .review-section .container-review {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left; /* Align form elements to the left */
+    }
+    .review-section .form-group {
+      margin-bottom: 1rem;
+    }
+    .review-section input[type="text"],
+    .review-section input[type="email"],
+    .review-section textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .review-section input[type="text"]:focus,
+    .review-section input[type="email"]:focus,
+    .review-section textarea:focus {
+      border-color: #007bff;
+    }
+    .review-section button.btn {
+      background: #007bff;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .review-section button.btn:hover {
+      background: #0056b3;
+    }
+
+    /* -------------------------- 
+       Footer 
+    --------------------------- */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #333;
+      color: #fff;
+      margin-top: 2rem;
+    }
+
+    /* -------------------------- 
+       Responsive Adjustments
+    --------------------------- */
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-image img.main-hero {
+        width: 100%;
+      }
+      .floating-icon {
+        display: none; /* Hide floating icons on smaller screens if desired */
+      }
+      .testimonial-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .testimonial-card {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="contact-info">
+      <span>📞 (+91)-9502795478</span>
+      <span>✉ testCrafted.com@gmail.com</span>
+    </div>
+    <div>
+      <!-- You can add additional info or social icons here if needed -->
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logo">
+      <!-- Replace with your actual logo image or text -->
+      <h1>Test Crafted</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a a href="curriculum/website.html" href="#hero">Home</a></li>
+        <li class="dropdown">
+        <a href="#courses" class="dropbtn">Courses <span class="arrow">&#9662;</span></a>
+        <ul class="dropdown-content">
+          <li><a href="java_backend_developer.html"><i class="fas fa-code"></i> Java Backend Development</a></li>
+          <li><a href="manual_testing.html"><i class="fas fa-vial"></i> Manual Testing</a></li>
+          <li><a href="automation_testing.html"><i class="fas fa-robot"></i> Automation Testing</a></li>
+        </ul>
+      </li>
+		<li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h2>Manual Testing</h2>
+      <ul>
+        <li>✔ Online classes with Job Oriented Training program</li>
+        <li>✔ Hands-on projects, dedicated placement guidance, and job support</li>
+        <li>✔ Comprehensive, career-focused training program</li>
+      </ul>
+       <a href="#courses" class="hero-button">Explore Courses</a>
+		</div>
+		<div class="hero-image">
+		  <img src="images/manual_testing_main.jpg" alt="Hero" class="main-hero" />
+		</div>
+	  </div>
+  </section>
+  
+  <!-- Job Roles Section -->
+  <section class="job-roles" id="job-roles">
+	<div class="container">
+	<h2>Job Roles After Manual Testing</h2>
+	<div class="roles-list">
+	  <div class="role-item">Testing Engineer</div>
+	  <div class="role-item">Manual Tester</div>
+	  <div class="role-item">Software Engineer</div>
+	  <div class="role-item">Software Test Engineer</div>
+	  <div class="role-item">Junior Test Engineer</div>
+	  <div class="role-item">Senior Test Engineer</div>
+	</div>
+	</div>
+  </section>
+  
+  <!-- Curriculum Section -->
+  <section class="curriculum-section" id="java-curriculum">
+    
+    <div class="curriculum-heading">
+      <h2>Manual Testing Curriculum</h2>
+    </div>
+
+
+    <div class="accordion" id="java-curriculum">
+      
+      <!-- Week 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 1: Introduction to Software Testing and Software Development Life Cycle</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+        <h3>Module 1: Software Testing Introduction</h3>
+        <p>In this module, you will learn about the importance of testing and why testers are needed in the industry. Ensuring that a software program meets business and technical requirements is crucial.</p>
+        <ul>
+            <li>What is testing?</li>
+            <li>Importance of testing</li>
+            <li>Roles and Responsibilities</li>
+            <li>Principles of software testing</li>
+            <li>What is Quality?</li>
+            <li>How much testing is enough?</li>
+            <li>Differences between Manual and Automation Testing</li>
+        </ul>
+        
+        <h2>Module 2: Software Development Life Cycle</h2>
+        <p>In this module, you will learn about the development procedure. SDLC (Software Development Life Cycle) describes how to develop, design, and maintain software projects while meeting all functional and user requirements.</p>
+        
+        <h3>1. SDLC Phases</h3>
+        <ul>
+            <li>Requirements Phase</li>
+            <li>Analysis Phase</li>
+            <li>Design Phase</li>
+            <li>Coding Phase</li>
+            <li>Testing Phase</li>
+            <li>Delivery and Maintenance Phase</li>
+        </ul>
+        
+        <h3>2. SDLC Models</h3>
+        <ul>
+            <li>Waterfall Model</li>
+            <li>V Model</li>
+            <li>Agile Model</li>
+            <li>Prototype Model</li>
+            <li>Spiral Model</li>
+        </ul>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 2: Software Testing Methodologies and Design Test-Case techniques</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+        <h2>Module 3: Software Testing Methodologies</h2>
+		<p>Exploring different software testing methodologies.</p>
+		<ul>
+			<li>White Box Testing</li>
+			<li>Black Box Testing</li>
+			<li>Grey Box Testing</li>
+		</ul>
+
+		<h2>Module 4: Test Case Design Techniques</h2>
+		<p>Learning techniques for designing effective test cases.</p>
+		<h3>Static Techniques</h3>
+		<ul>
+			<li>Informal Reviews</li>
+			<li>Walkthroughs</li>
+			<li>Technical Reviews</li>
+			<li>Inspection</li>
+		</ul>
+		<h2>Dynamic Techniques</h2>
+		<h2>Structural Techniques</h2>
+		<ul>
+			<li>Statement Coverage Testing</li>
+			<li>Branch Coverage Testing</li>
+			<li>Path Coverage Testing</li>
+			<li>Conditional Coverage Testing</li>
+			<li>Loop Coverage Testing</li>
+		</ul>
+		<h2>Black Box Techniques</h2>
+		<ul>
+			<li>Boundary Value Analysis</li>
+			<li>Equivalence Class Partition</li>
+			<li>State Transition Technique</li>
+			<li>Cause Effective Graph</li>
+			<li>Decision Table</li>
+			<li>Use Case Testing</li>
+		</ul>
+		<h2>Experienced Based Techniques</h2>
+		<ul>
+			<li>Error Guessing</li>
+			<li>Exploratory Testing</li>
+		</ul>
+        </div>
+      </div>
+
+      <!-- Week 3 -->
+     <div class="accordion-header">
+          <span>Week 3: Functional and Non-Functional Testing</span>
+          <span class="chevron">&#9654;</span>
+      </div>
+     <div class="accordion-content">
+     <h2>Module 5: Levels of Testing</h2>
+      <h2>1. Functional Testing</h2>
+        <ul>
+            <li>Unit Testing</li>
+            <li>Integration Testing</li>
+            <li>System Testing</li>
+            <li>User Acceptance Testing</li>
+            <li>Sanity/Smoke Testing</li>
+            <li>Regression Testing</li>
+            <li>Retesting</li>
+        </ul>
+        <h2>2. Non-Functional Testing</h2>
+        <ul>
+            <li>Performance Testing</li>
+            <li>Memory Test</li>
+            <li>Scalability Testing</li>
+            <li>Compatibility Testing</li>
+            <li>Security Testing</li>
+            <li>Cookies Testing</li>
+            <li>Session Testing</li>
+            <li>Recovery Testing</li>
+            <li>Installation Testing</li>
+            <li>Adhoc Testing</li>
+            <li>Risk-Based Testing</li>
+            <li>I18N Testing</li>
+            <li>L1ON Testing</li>
+            <li>Compliance Testing</li>
+        </ul>
+        </div>
+      </div>
+
+      <!-- Week 4: Deep Dive into Spring Boot and JPA -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 4: STLC(Software Testing Life Cycle)</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+        <h2>Module 6: Software Testing Life Cycle</h2>
+		<h2>1. Requirements Analysis/Design</h2>
+		<ul>
+			<li>Understand the requirements</li>
+			<li>Prepare Traceability Matrix</li>
+		</ul>
+		
+		<h2>2. Test Planning</h2>
+		<ul>
+			<li>Object</li>
+			<li>Scope of Testing</li>
+			<li>Schedule</li>
+			<li>Approach</li>
+			<li>Roles & Responsibilities</li>
+			<li>Assumptions</li>
+			<li>Risks & Mitigations</li>
+			<li>Entry & Exit Criteria</li>
+			<li>Test Automation</li>
+			<li>Deliverables</li>
+		</ul>
+		
+		<h2>3. Test Cases Design</h2>
+		<ul>
+			<li>Write Test Cases</li>
+			<li>Review Test Cases</li>
+			<li>Test Cases Template</li>
+			<li>Types of Test Cases</li>
+			<li>Difference between Test Scenarios and Test Cases</li>
+		</ul>
+		
+		<h2>4. Test Environment Setup</h2>
+		<ul>
+			<li>Understand the SRS</li>
+			<li>Hardware and software requirements</li>
+			<li>Test Data</li>
+		</ul>
+		
+		<h2>5. Test Execution</h2>
+		<ul>
+			<li>Execute Test Cases</li>
+			<li>Defect Tracking and Reporting</li>
+			<ul>
+				<li>Types of Bugs</li>
+				<li>Identifying the Bugs</li>
+				<li>Bug/Defect Life Cycle</li>
+				<li>Reporting the Bugs</li>
+				<li>Severity and Priority</li>
+			</ul>
+		</ul>
+		
+		<h2>6. Test Closure</h2>
+		<ul>
+			<li>Criteria for Test Closure</li>
+			<li>Test Summary Report</li>
+		</ul>
+		
+		<h2>7. Test Metrics</h2>
+		<ul>
+			<li>What is Test Measurements?</li>
+			<li>Why Test Metrics?</li>
+			<li>Metric Life Cycle</li>
+			<li>Types of Manual Test Metrics</li>
+		</ul>
+        </div>
+      </div>
+
+      <!-- Week 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 5: QA & QC and Real-time Projects</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+		<h2>Module 7: QA & QC</h2>
+		<ul>
+			<li>What is Quality Assurance?</li>
+			<li>What is Quality Control?</li>
+			<li>Differences between QA, QC, and Testing</li>
+		</ul>
+		
+		<h2>Test Management with TFS Tool</h2>
+		<ul>
+			<li>Defect Tracking Tools</li>
+			<li>Learning and Implementing TFS</li>
+		</ul>
+		
+		<h2>Real-time Project</h2>
+		<ul>
+			<li>Product Abstract Document</li>
+			<li>Requirement Specification Document</li>
+			<li>Step-by-step procedure for Testing the project</li>
+			<li>Complete Test Plan, Test Cases, Traceability, Defect Tracking Report</li>
+		</ul>
+		
+		<h2>Course Outcome</h2>
+		<ul>
+			<li>Understand the complete cycle of Manual Testing</li>
+			<li>Gain experience through live projects</li>
+			<li>Start a career in Software Quality Assurance</li>
+		</ul>
+        </div>
+      </div>
+	  
+	  <!-- Testimonials Section -->
+	<section class="testimonials" id="testimonials">
+	  <div class="container">
+		<h2>Testimonials</h2>
+		<p>See what our students have to say about their learning experience.</p>
+
+		<!-- Testimonial Slider -->
+		<div class="testimonial-slider">
+		  <div class="testimonial-track">
+			<!-- Dynamic testimonials will be inserted here -->
+		  </div>
+		</div>
+	  </div>
+	</section>
+	  
+	  <!-- Contact Section -->
+  <section class="courses" id="contact">
+    <h2>Contact Us</h2>
+    <p>Interested in our courses or have any questions? Feel free to reach out.</p>
+    <p><strong>Phone:</strong> 9502795478 &nbsp;|&nbsp; <strong>Email:</strong> testCrafted@gmail.com</p>
+    <!-- Add a contact form if you want -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Test Crafted. All Rights Reserved.</p>
+  </footer>
+
+    </div> <!-- end .accordion -->
+  </div> <!-- end .container -->
+  
+  <script>
+	document.addEventListener("DOMContentLoaded", function () {
+  const reviewForm = document.getElementById("reviewForm");
+  const testimonialTrack = document.querySelector(".testimonial-track");
+
+  // Sample Testimonials
+  const testimonials = [
+    { name: "John Doe", course: "Java Backend", message: "Great learning experience!" },
+    { name: "Jane Smith", course: "Frontend Development", message: "The projects were amazing!" },
+    { name: "Mike Johnson", course: "DSA", message: "Helped me ace my coding interviews!" },
+  ];
+
+  function addTestimonial(name, course, message) {
+    const testimonialHTML = `
+      <div class="testimonial-card">
+        <p>"${message}"</p>
+        <p class="testimonial-name">- ${name}, ${course}</p>
+      </div>
+    `;
+    testimonialTrack.innerHTML += testimonialHTML;
+  }
+
+  // Load initial testimonials
+  testimonials.forEach((t) => addTestimonial(t.name, t.course, t.message));
+
+  // Handle Form Submission
+  reviewForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const course = document.getElementById("course").value;
+    const message = document.getElementById("message").value;
+
+    addTestimonial(name, course, message);
+
+    // Reset form
+    reviewForm.reset();
+  });
+
+  // Auto Slide Testimonials
+  let index = 0;
+  function slideTestimonials() {
+    index++;
+    if (index >= testimonialTrack.children.length) {
+      index = 0;
+    }
+    testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  setInterval(slideTestimonials, 3000); // Auto-slide every 3 seconds
+});
+  
+    // Select all accordion headers
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        // Toggle active class on the header
+        header.classList.toggle('active');
+
+        // Select the content
+        const content = header.nextElementSibling;
+
+        // Toggle open class for content
+        if (content.classList.contains('open')) {
+          content.classList.remove('open');
+          content.style.maxHeight = null;
+        } else {
+          // Close any other open items if you want single-open behavior
+          // (optional) - remove comments below if single open is desired:
+          /*
+          document.querySelectorAll('.accordion-content.open').forEach(openItem => {
+            openItem.classList.remove('open');
+            openItem.style.maxHeight = null;
+            openItem.previousElementSibling.classList.remove('active');
+          });
+          */
+
+          content.classList.add('open');
+          // Auto-measure scrollHeight for smooth transition
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
+
+</body>
+</html>

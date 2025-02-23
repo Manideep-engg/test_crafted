@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Crafted - Online Learning Course Platform</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  integrity="sha512-ac8mDw5f5u0+Sf0h1O1hsH7p6rjAp6LM7nH1gDD7Y/+nqXg6yN2LS9i6l96n6ug3H+p0rxShlmmkDW7+TAAh1g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"/>
+
+  <style>
+    /* -------------------------- 
+       Global Reset & Basic Styles
+    --------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      background-color: #fff;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* -------------------------- 
+       Top Bar 
+    --------------------------- */
+    .top-bar {
+      background-color: black;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .top-bar .contact-info {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .top-bar .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: white;
+    }
+
+    /* -------------------------- 
+       Header & Navigation
+    --------------------------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .logo h1 {
+      font-size: 1.5rem;
+      color: #2a2a2a;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      font-weight: 500;
+      color: #2a2a2a;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+	  background-color: #007bff; /* Blue background on hover */
+	  color: white !important; /* White text on hover */
+	  padding: 10px 15px; /* Ensure proper padding */
+	  border-radius: 5px; /* Rounded corners */
+    }
+    .btn-get-skilled {
+      background-color: #333;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .btn-get-skilled:hover {
+      background-color: #007bff;
+    }
+	
+	/* Dropdown Menu */
+	  .dropdown {
+		position: relative;
+	  }
+
+	  .dropbtn {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	  }
+
+	  .arrow {
+		transition: transform 0.3s ease;
+	  }
+
+	  .dropdown:hover .arrow {
+		transform: rotate(180deg);
+	  }
+
+		  .dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background: rgba(20, 20, 20, 0.95);
+	  min-width: 260px; /* Increased width */
+	  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+	  border-radius: 10px;
+	  overflow: hidden;
+	  top: 45px;
+	  left: 0;
+	  z-index: 1000;
+	  padding: 8px 0; /* Added padding for better spacing */
+	}
+
+	.dropdown-content li {
+	  display: flex;
+	  align-items: center;
+	  padding: 12px 20px; /* Adjusted padding */
+	  transition: 0.3s;
+	  white-space: nowrap; /* Prevents text from breaking */
+	}
+
+	.dropdown-content li a {
+	  display: flex;
+	  align-items: center;
+	  gap: 12px;
+	  color: white;
+	  font-size: 1rem;
+	  width: 100%;
+	  transition: 0.3s;
+	  text-decoration: none;
+	  padding: 10px 15px; /* Ensures text alignment */
+	}
+
+	.dropdown-content li:hover {
+	  background: rgba(255, 255, 255, 0.1);
+	}
+
+	/* Ensure text is well-spaced */
+	.dropdown-content li a i {
+	  font-size: 1.2rem;
+	}
+
+	/* Dropdown Hover Effect */
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	  animation: fadeIn 0.3s ease-in-out;
+	}
+
+	/* Keyframe Animation */
+	@keyframes fadeIn {
+	  from {
+		opacity: 0;
+		transform: translateY(10px);
+	  }
+	  to {
+		opacity: 1;
+		transform: translateY(0);
+	  }
+	}
+
+    /* -------------------------- 
+       Hero Section
+    --------------------------- */
+    .hero {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 80vh;
+		background: linear-gradient(to right, #f9f9f9, #eef1f5);
+		padding: 50px 5%;
+	  }
+
+	  .hero-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1200px;
+		width: 100%;
+	  }
+
+	  .hero-text {
+		flex: 1;
+		max-width: 50%;
+	  }
+
+	  .hero-heading {
+		font-size: 2.5rem;
+		font-weight: bold;
+		color: #222;
+	  }
+
+	  .hero-list {
+		list-style: none;
+		padding: 0;
+		font-size: 1.2rem;
+		line-height: 1.8;
+		color: #444;
+	  }
+
+	  .hero-button {
+		display: inline-block;
+		padding: 12px 24px;
+		font-size: 1.2rem;
+		background: #007bff;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 8px;
+		margin-top: 20px;
+		transition: 0.3s;
+	  }
+
+	  .hero-button:hover {
+		background: #0056b3;
+	  }
+
+	  .hero-image {
+		flex: 1;
+		text-align: center;
+		max-width: 50%;
+	  }
+
+	  .main-hero {
+		width: 100%;
+		max-width: 500px;
+		border-radius: 15px;
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+	  }
+
+	  @media (max-width: 768px) {
+		.hero-container {
+		  flex-direction: column;
+		  text-align: center;
+		}
+		.hero-text, .hero-image {
+		  max-width: 100%;
+		}
+		.main-hero {
+		  max-width: 300px;
+		}
+	  }
+	
+	/* Job Roles Section - Modern Style */
+	.job-roles {
+	  background: linear-gradient(135deg, #0d47a1, #1976d2);
+	  color: #fff;
+	  padding: 4rem 1rem;
+	  text-align: center;
+	}
+
+	.job-roles .container {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	}
+
+	.job-roles h2 {
+	  font-size: 2.5rem;
+	  font-weight: 700;
+	  margin-bottom: 2rem;
+	}
+
+	.roles-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 1.5rem;
+	  justify-content: center;
+	}
+
+	.role-item {
+	  background: rgba(255, 255, 255, 0.2);
+	  padding: 1rem 2rem;
+	  border-radius: 12px;
+	  font-size: 1.1rem;
+	  font-weight: 500;
+	  transition: background 0.3s ease, transform 0.3s ease;
+	  min-width: 180px;
+	  cursor: pointer;
+	}
+
+	.role-item:hover {
+	  background: rgba(255, 255, 255, 0.3);
+	  transform: translateY(-5px);
+	}
+	
+	/* Curriculum Section */
+    .curriculum-section {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Curriculum Heading */
+    .curriculum-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .curriculum-heading h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Accordion Styles */
+    .accordion {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #eee;
+    }
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Accordion Header */
+    .accordion-header {
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      background: #fafafa;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+    }
+    .accordion-header:hover {
+      background: #f0f0f0;
+    }
+
+    /* Chevron Icon */
+    .accordion-header .chevron {
+      transition: transform 0.3s;
+    }
+    .accordion-header.active .chevron {
+      transform: rotate(90deg);
+    }
+
+    /* Accordion Content */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 1.5rem;
+    }
+    .accordion-content.open {
+      padding: 1rem 1.5rem;
+    }
+    .accordion-content ul {
+      list-style: disc inside;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .accordion-content h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .accordion-header {
+        font-size: 0.95rem;
+      }
+    }
+
+
+    /* -------------------------- 
+       Courses Section
+    --------------------------- */
+    .courses {
+      padding: 3rem 2rem;
+      background-color: #fafafa;
+      text-align: center;
+    }
+	/* Modern Buttons Row */
+	.btn-row {
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-start; /* or center, if you prefer */
+		margin-top: 1rem;
+	}
+
+	/* Modern Button Style */
+	.btn-modern {
+	  display: inline-flex;          /* Align icon and text horizontally */
+	  align-items: center;           /* Vertically center icon and text */
+	  padding: 0.6rem 1.2rem;
+	  background-color: #007bff;
+	  color: #fff;
+	  border-radius: 4px;
+	  text-decoration: none;
+	  font-weight: 600;
+	  font-size: 0.9rem;
+	  transition: background 0.3s ease;
+	}
+
+	.btn-modern i {
+	  margin-right: 0.5rem;          /* Space between icon and text */
+	  font-size: 1rem;               /* Adjust icon size if needed */
+	}
+
+	.btn-modern:hover {
+	  background-color: #0056b3;
+	}
+
+
+    .courses h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+    .course-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .course-card {
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+    }
+    .course-card h3 {
+      margin-bottom: 1rem;
+      color: #007bff;
+      font-size: 1.2rem;
+    }
+    .course-card p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    .course-card a {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .course-card a:hover {
+      background-color: #0056b3;
+    }
+	
+/* -------------------------- 
+       Our Core Offerings Section
+    --------------------------- */
+	.trending-courses {
+	  padding: 3rem 2rem;
+	  background: #fff; /* or #fafafa to match your theme */
+	  text-align: center;
+	}
+
+	.trending-courses h2 {
+	  font-size: 2rem;
+	  margin-bottom: 0.5rem;
+	  color: #333;
+	}
+
+	.trending-courses p {
+	  color: #555;
+	  margin-bottom: 2rem;
+	}
+
+	.trending-container {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	}
+
+	/* Cards Container */
+	.trending-cards {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 2rem;
+	  justify-content: center;
+	}
+
+	/* Individual Card */
+	.trending-card {
+	  background: #f9f9f9;
+	  width: 270px;
+	  padding: 2rem;
+	  border-radius: 6px;
+	  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+	  text-align: center;
+	}
+
+	.trending-card img {
+	  display: block;
+	  margin: 0 auto 1rem;
+	  width: 60px;
+	  height: 60px;
+	  object-fit: contain; 
+	}
+
+	.trending-card h3 {
+	  margin-bottom: 1rem;
+	  color: #111111;
+	  font-size: 1.2rem;
+	}
+
+	.trending-card p {
+	  font-size: 0.95rem;
+	  color: #555;
+	  line-height: 1.4;
+	}
+
+	/* Responsive for Smaller Screens */
+	@media (max-width: 768px) {
+	  .trending-cards {
+		flex-direction: column;
+		align-items: center;
+	  }
+	  .trending-card {
+		width: 100%;
+		max-width: 400px;
+	  }
+	}
+
+	
+
+
+    /* -------------------------- 
+       Testimonials Section
+    --------------------------- */
+    .testimonials {
+	  background: #f9f9f9;
+	  padding: 60px 20px;
+	  text-align: center;
+	}
+
+	.container {
+	  max-width: 800px;
+	  margin: auto;
+	}
+
+	h2 {
+	  font-size: 26px;
+	  font-weight: bold;
+	  color: #333;
+	}
+
+	p {
+	  font-size: 16px;
+	  color: #666;
+	  margin-bottom: 25px;
+	}
+
+	/* Testimonial Slider */
+	.testimonial-slider {
+	  overflow: hidden;
+	  position: relative;
+	  max-width: 600px;
+	  margin: auto;
+	}
+
+	.testimonial-track {
+	  display: flex;
+	  transition: transform 0.5s ease-in-out;
+	}
+
+	.testimonial-card {
+	  min-width: 100%;
+	  background: white;
+	  padding: 20px;
+	  border-radius: 10px;
+	  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+	  margin: 10px;
+	}
+
+	.testimonial-name {
+	  font-weight: bold;
+	  color: #007bff;
+	}
+
+	/* Submit Button */
+	.btn-submit {
+	  width: 100%;
+	  padding: 12px;
+	  background: linear-gradient(135deg, #007bff, #0056b3);
+	  color: white;
+	  font-size: 18px;
+	  border: none;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: 0.3s;
+	}
+
+	.btn-submit:hover {
+	  background: linear-gradient(135deg, #0056b3, #003580);
+	}
+
+    /* -------------------------- 
+       Write a Review Section
+    --------------------------- */
+    .review-section {
+      padding: 3rem 2rem;
+      background: #fff;
+      text-align: center;
+    }
+    .review-section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .review-section p {
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .review-section .container-review {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left; /* Align form elements to the left */
+    }
+    .review-section .form-group {
+      margin-bottom: 1rem;
+    }
+    .review-section input[type="text"],
+    .review-section input[type="email"],
+    .review-section textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .review-section input[type="text"]:focus,
+    .review-section input[type="email"]:focus,
+    .review-section textarea:focus {
+      border-color: #007bff;
+    }
+    .review-section button.btn {
+      background: #007bff;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .review-section button.btn:hover {
+      background: #0056b3;
+    }
+
+    /* -------------------------- 
+       Footer 
+    --------------------------- */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #333;
+      color: #fff;
+      margin-top: 2rem;
+    }
+
+    /* -------------------------- 
+       Responsive Adjustments
+    --------------------------- */
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-image img.main-hero {
+        width: 100%;
+      }
+      .floating-icon {
+        display: none; /* Hide floating icons on smaller screens if desired */
+      }
+      .testimonial-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .testimonial-card {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="contact-info">
+      <span>📞 (+91)-9502795478</span>
+      <span>✉ testCrafted.com@gmail.com</span>
+    </div>
+    <div>
+      <!-- You can add additional info or social icons here if needed -->
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logo">
+      <!-- Replace with your actual logo image or text -->
+      <h1>Test Crafted</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a a href="curriculum/website.html" href="#hero">Home</a></li>
+        <li class="dropdown">
+        <a href="#courses" class="dropbtn">Courses <span class="arrow">&#9662;</span></a>
+        <ul class="dropdown-content">
+          <li><a href="java_backend_developer.html"><i class="fas fa-code"></i> Java Backend Development</a></li>
+          <li><a href="manual_testing.html"><i class="fas fa-vial"></i> Manual Testing</a></li>
+          <li><a href="automation_testing.html"><i class="fas fa-robot"></i> Automation Testing</a></li>
+        </ul>
+      </li>
+		<li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h2>Automation Testing</h2>
+      <ul>
+        <li>✔ Online classes with Job Oriented Training program</li>
+        <li>✔ Hands-on projects, dedicated placement guidance, and job support</li>
+        <li>✔ Comprehensive, career-focused training program</li>
+      </ul>
+      <a href="#courses" class="hero-button">Explore Courses</a>
+		</div>
+		<div class="hero-image">
+		  <img src="images/automation_testing_main.jpg" alt="Hero" class="main-hero" />
+		</div>
+	  </div>
+  </section>
+  
+  <!-- Job Roles Section -->
+  <section class="job-roles" id="job-roles">
+	<div class="container">
+	<h2>Job Roles After Automation Testing</h2>
+	<div class="roles-list">
+	  <div class="role-item">Testing Engineer</div>
+	  <div class="role-item">Automation Tester</div>
+	  <div class="role-item">Software Engineer</div>
+	  <div class="role-item">Software Test Engineer</div>
+	  <div class="role-item">Junior Test Engineer</div>
+	  <div class="role-item">Senior Test Engineer</div>
+	</div>
+	</div>
+  </section>
+  
+  <!-- Curriculum Section -->
+  <section class="curriculum-section" id="java-curriculum">
+    
+    <div class="curriculum-heading">
+      <h2>Automation Testing Curriculum</h2>
+    </div>
+
+
+    <div class="accordion" id="java-curriculum">
+      
+      <!-- Week 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 1: Introduction to Software Testing and Software Development Life Cycle</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+        <h3>Week 1: Introduction to Manual and Automation Testing</h3>
+		<ul>
+			<li>Introduction to Manual Testing and Automation Testing</li>
+			<li>Introduction to Selenium</li>
+			<li>About Selenium WebDriver and Locators used for identifying elements</li>
+			<li>Locators: Xpath Expressions, CSS Selectors</li>
+		</ul>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 2: Software Testing Methodologies and Design Test-Case techniques</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+        <h3>Week 2: Java and Eclipse IDE</h3>
+		<ul>
+			<li>Introduction to Java</li>
+			<li>Downloading, Installation, and Configuring Java</li>
+			<li>Introduction to Eclipse IDE</li>
+			<li>Downloading, Installation, and Working with Eclipse IDE</li>
+		</ul>
+        </div>
+      </div>
+
+      <!-- Week 3 -->
+     <div class="accordion-header">
+          <span>Week 3: Functional and Non-Functional Testing</span>
+          <span class="chevron">&#9654;</span>
+      </div>
+     <div class="accordion-content">
+     <h3>Week 3: Selenium WebDriver Basics</h3>
+		<ul>
+			<li>Introduction to Selenium WebDriver</li>
+			<li>Types of Wait in Selenium</li>
+			<li>Handling Alerts</li>
+			<li>Handling Dropdowns using Select Class</li>
+			<li>Handling Multiple Windows Using Selenium WebDriver</li>
+			<li>Handling Lightbox</li>
+			<li>Executing Selenium Scripts on Multiple Browsers (Chrome, Firefox, Edge)</li>
+		</ul>
+        </div>
+      </div>
+
+      <!-- Week 4: Deep Dive into Spring Boot and JPA -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 4: STLC(Software Testing Life Cycle)</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+         <h3>Week 4: TestNG Framework</h3>
+    <ul>
+        <li>Installing TestNG in Eclipse IDE</li>
+        <li>Configuring Java Projects with TestNG JAR Files</li>
+        <li>Working of TestNG Annotations</li>
+        <li>Prioritizing the Tests</li>
+    </ul>
+        </div>
+      </div>
+
+      <!-- Week 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 5: QA & QC and Real-time Projects</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+		<h3>Week 5: Advanced Topics</h3>
+    <ul>
+        <li>Introduction to Maven</li>
+        <li>Creation of Maven Project</li>
+        <li>Executing Selenium Project Code from Command Line</li>
+        <li>Introduction to BDD and Cucumber</li>
+        <li>Creating Feature File with Step Definitions</li>
+        <li>Explaining Hooks like @Given, @Then, @And, @But</li>
+    </ul>
+        </div>
+      </div>
+	  
+	   <!-- Week 6 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>Week 6: QA & QC and Real-time Projects</span>
+          <span class="chevron">&#9654;</span>
+        </div>
+        <div class="accordion-content">
+		<h3>Week 6: CI/CD and Live Projects</h3>
+    <ul>
+        <li>Introduction to Jenkins: Installation & Configuration</li>
+        <li>Introduction to GitHub: Installation & Configuration</li>
+        <li>Live Projects:</li>
+        <ul>
+            <li>Integration of BDD Cucumber</li>
+            <li>Implementation of Page Object Model (POM) and Page Factory</li>
+        </ul>
+    </ul>
+        </div>
+      </div>
+	  
+	  <!-- Testimonials Section -->
+	<section class="testimonials" id="testimonials">
+	  <div class="container">
+		<h2>Testimonials</h2>
+		<p>See what our students have to say about their learning experience.</p>
+
+		<!-- Testimonial Slider -->
+		<div class="testimonial-slider">
+		  <div class="testimonial-track">
+			<!-- Dynamic testimonials will be inserted here -->
+		  </div>
+		</div>
+	  </div>
+	</section>
+	  
+	  <!-- Contact Section -->
+  <section class="courses" id="contact">
+    <h2>Contact Us</h2>
+    <p>Interested in our courses or have any questions? Feel free to reach out.</p>
+    <p><strong>Phone:</strong> 9502795478 &nbsp;|&nbsp; <strong>Email:</strong> testCrafted@gmail.com</p>
+    <!-- Add a contact form if you want -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Test Crafted. All Rights Reserved.</p>
+  </footer>
+
+    </div> <!-- end .accordion -->
+  </div> <!-- end .container -->
+  
+  <script>
+	document.addEventListener("DOMContentLoaded", function () {
+  const reviewForm = document.getElementById("reviewForm");
+  const testimonialTrack = document.querySelector(".testimonial-track");
+
+  // Sample Testimonials
+  const testimonials = [
+    { name: "John Doe", course: "Java Backend", message: "Great learning experience!" },
+    { name: "Jane Smith", course: "Frontend Development", message: "The projects were amazing!" },
+    { name: "Mike Johnson", course: "DSA", message: "Helped me ace my coding interviews!" },
+  ];
+
+  function addTestimonial(name, course, message) {
+    const testimonialHTML = `
+      <div class="testimonial-card">
+        <p>"${message}"</p>
+        <p class="testimonial-name">- ${name}, ${course}</p>
+      </div>
+    `;
+    testimonialTrack.innerHTML += testimonialHTML;
+  }
+
+  // Load initial testimonials
+  testimonials.forEach((t) => addTestimonial(t.name, t.course, t.message));
+
+  // Handle Form Submission
+  reviewForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const course = document.getElementById("course").value;
+    const message = document.getElementById("message").value;
+
+    addTestimonial(name, course, message);
+
+    // Reset form
+    reviewForm.reset();
+  });
+
+  // Auto Slide Testimonials
+  let index = 0;
+  function slideTestimonials() {
+    index++;
+    if (index >= testimonialTrack.children.length) {
+      index = 0;
+    }
+    testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  setInterval(slideTestimonials, 3000); // Auto-slide every 3 seconds
+});
+  
+    // Select all accordion headers
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        // Toggle active class on the header
+        header.classList.toggle('active');
+
+        // Select the content
+        const content = header.nextElementSibling;
+
+        // Toggle open class for content
+        if (content.classList.contains('open')) {
+          content.classList.remove('open');
+          content.style.maxHeight = null;
+        } else {
+          // Close any other open items if you want single-open behavior
+          // (optional) - remove comments below if single open is desired:
+          /*
+          document.querySelectorAll('.accordion-content.open').forEach(openItem => {
+            openItem.classList.remove('open');
+            openItem.style.maxHeight = null;
+            openItem.previousElementSibling.classList.remove('active');
+          });
+          */
+
+          content.classList.add('open');
+          // Auto-measure scrollHeight for smooth transition
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
+
+</body>
+</html>

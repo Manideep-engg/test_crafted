@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Crafted - Online Learning Course Platform</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  integrity="sha512-ac8mDw5f5u0+Sf0h1O1hsH7p6rjAp6LM7nH1gDD7Y/+nqXg6yN2LS9i6l96n6ug3H+p0rxShlmmkDW7+TAAh1g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"/>
+
+  <style>
+    /* -------------------------- 
+       Global Reset & Basic Styles
+    --------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      background-color: #fff;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+	/* -------------------------- 
+       Top Bar 
+    --------------------------- */
+    .top-bar {
+      background-color: black;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .top-bar .contact-info {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .top-bar .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: white;
+    }
+
+
+
+   /* -------------------------- 
+       Header & Navigation
+    --------------------------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .logo h1 {
+      font-size: 1.5rem;
+      color: #2a2a2a;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      font-weight: 500;
+      color: #2a2a2a;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+	  background-color: #007bff; /* Blue background on hover */
+	  color: white !important; /* White text on hover */
+	  padding: 10px 15px; /* Ensure proper padding */
+	  border-radius: 5px; /* Rounded corners */
+    }
+    .btn-get-skilled {
+      background-color: #333;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .btn-get-skilled:hover {
+      background-color: #007bff;
+    }
+
+	/* -------------------------- 
+       Nav Bar
+    --------------------------- */
+	
+	.navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+        .form-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            width: 300px;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+        .form-container button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .close {
+            float: right;
+            cursor: pointer;
+            color: red;
+        }
+		/* Dropdown Menu */
+	  .dropdown {
+		position: relative;
+	  }
+
+	  .dropbtn {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	  }
+
+	  .arrow {
+		transition: transform 0.3s ease;
+	  }
+
+	  .dropdown:hover .arrow {
+		transform: rotate(180deg);
+	  }
+
+	  .dropdown-content {
+		display: none;
+		position: absolute;
+		background: rgba(20, 20, 20, 0.95);
+		min-width: 250px;
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+		border-radius: 10px;
+		overflow: hidden;
+		top: 45px;
+		left: 0;
+		z-index: 1000;
+	  }
+
+	  .dropdown-content li {
+		display: flex;
+		align-items: center;
+		padding: 12px 15px;
+		transition: 0.3s;
+	  }
+
+	  .dropdown-content li a {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: white;
+		font-size: 1rem;
+		width: 100%;
+		transition: 0.3s;
+	  }
+
+	  .dropdown-content li:hover {
+		background: rgba(255, 255, 255, 0.1);
+	  }
+
+	  .dropdown:hover .dropdown-content {
+		display: block;
+		animation: fadeIn 0.3s ease-in-out;
+	  }
+
+	  /* Keyframe Animation */
+	  @keyframes fadeIn {
+		from {
+		  opacity: 0;
+		  transform: translateY(10px);
+		}
+		to {
+		  opacity: 1;
+		  transform: translateY(0);
+		}
+	  }
+
+
+    /* -------------------------- 
+       Hero Section
+    --------------------------- */
+	.hero {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 80vh;
+		background: linear-gradient(to right, #f9f9f9, #eef1f5);
+		padding: 50px 5%;
+	  }
+
+	  .hero-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1200px;
+		width: 100%;
+	  }
+
+	  .hero-text {
+		flex: 1;
+		max-width: 50%;
+	  }
+
+	  .hero-heading {
+		font-size: 2.5rem;
+		font-weight: bold;
+		color: #222;
+	  }
+
+	  .hero-list {
+		list-style: none;
+		padding: 0;
+		font-size: 1.2rem;
+		line-height: 1.8;
+		color: #444;
+	  }
+
+	  .hero-button {
+		display: inline-block;
+		padding: 12px 24px;
+		font-size: 1.2rem;
+		background: #007bff;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 8px;
+		margin-top: 20px;
+		transition: 0.3s;
+	  }
+
+	  .hero-button:hover {
+		background: #0056b3;
+	  }
+
+	  .hero-image {
+		flex: 1;
+		text-align: center;
+		max-width: 50%;
+	  }
+
+	  .main-hero {
+		width: 100%;
+		max-width: 500px;
+		border-radius: 15px;
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+	  }
+
+	  @media (max-width: 768px) {
+		.hero-container {
+		  flex-direction: column;
+		  text-align: center;
+		}
+		.hero-text, .hero-image {
+		  max-width: 100%;
+		}
+		.main-hero {
+		  max-width: 300px;
+		}
+	  }
+
+    /* -------------------------- 
+       Courses Section
+    --------------------------- */
+    .courses {
+      padding: 3rem 2rem;
+      background-color: #fafafa;
+      text-align: center;
+    }
+	/* Modern Buttons Row */
+	.btn-row {
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-start; /* or center, if you prefer */
+		margin-top: 1rem;
+	}
+
+	/* Modern Button Style */
+	.btn-modern {
+	  display: inline-flex;          /* Align icon and text horizontally */
+	  align-items: center;           /* Vertically center icon and text */
+	  padding: 0.6rem 1.2rem;
+	  background-color: #007bff;
+	  color: #fff;
+	  border-radius: 4px;
+	  text-decoration: none;
+	  font-weight: 600;
+	  font-size: 0.9rem;
+	  transition: background 0.3s ease;
+	}
+
+	.btn-modern i {
+	  margin-right: 0.5rem;          /* Space between icon and text */
+	  font-size: 1rem;               /* Adjust icon size if needed */
+	}
+
+	.btn-modern:hover {
+	  background-color: #0056b3;
+	}
+
+
+    .courses h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+    .course-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .course-card {
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+    }
+    .course-card h3 {
+      margin-bottom: 1rem;
+      color: #007bff;
+      font-size: 1.2rem;
+    }
+    .course-card p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    .course-card a {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .course-card a:hover {
+      background-color: #0056b3;
+    }
+	
+/* -------------------------- 
+       Our Core Offerings Section
+    --------------------------- */
+	.trending-courses {
+	  padding: 3rem 2rem;
+	  background: #fff; /* or #fafafa to match your theme */
+	  text-align: center;
+	}
+
+	.trending-courses h2 {
+	  font-size: 2rem;
+	  margin-bottom: 0.5rem;
+	  color: #333;
+	}
+
+	.trending-courses p {
+	  color: #555;
+	  margin-bottom: 2rem;
+	}
+
+	.trending-container {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	}
+
+	/* Cards Container */
+	.trending-cards {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 2rem;
+	  justify-content: center;
+	}
+
+	/* Individual Card */
+	.trending-card {
+	  background: #f9f9f9;
+	  width: 270px;
+	  padding: 2rem;
+	  border-radius: 6px;
+	  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+	  text-align: center;
+	}
+
+	.trending-card img {
+	  display: block;
+	  margin: 0 auto 1rem;
+	  width: 60px;
+	  height: 60px;
+	  object-fit: contain; 
+	}
+
+	.trending-card h3 {
+	  margin-bottom: 1rem;
+	  color: #111111;
+	  font-size: 1.2rem;
+	}
+
+	.trending-card p {
+	  font-size: 0.95rem;
+	  color: #555;
+	  line-height: 1.4;
+	}
+
+	/* Responsive for Smaller Screens */
+	@media (max-width: 768px) {
+	  .trending-cards {
+		flex-direction: column;
+		align-items: center;
+	  }
+	  .trending-card {
+		width: 100%;
+		max-width: 400px;
+	  }
+	}
+
+	.register-btn { background: #ff4b5c; padding: 10px 20px; border-radius: 5px; cursor: pointer; color: white; text-decoration: none; font-weight: 600; }
+	.register-btn:hover { background: #e63946; }
+	.modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); width: 90%; max-width: 400px; }
+	.modal h2 { margin-bottom: 15px; text-align: center; color: #1a1a2e; }
+	.modal input, .modal textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+	.modal textarea { height: 80px; resize: none; }
+	.modal button { width: 100%; padding: 12px; background: #1a1a2e; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+	.modal button:hover { background: #16213e; }
+	.success-message { 
+		display: none; 
+		position: fixed; 
+		top: 20px; 
+		left: 50%; 
+		transform: translateX(-50%); 
+		background: #28a745; 
+		color: white; 
+		padding: 15px 20px; 
+		border-radius: 5px; 
+		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+		font-size: 18px;
+		font-weight: 600;
+		animation: fadeInOut 3s ease-in-out;
+	}
+	@keyframes fadeInOut {
+		0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+		10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+		90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+		100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+	}
+
+
+    /* -------------------------- 
+       Testimonials Section
+    --------------------------- */
+	.testimonials {
+	  background: #f9f9f9;
+	  padding: 60px 20px;
+	  text-align: center;
+	}
+
+	.container {
+	  max-width: 800px;
+	  margin: auto;
+	}
+
+	h2 {
+	  font-size: 26px;
+	  font-weight: bold;
+	  color: #333;
+	}
+
+	p {
+	  font-size: 16px;
+	  color: #666;
+	  margin-bottom: 25px;
+	}
+
+	/* Testimonial Slider */
+	.testimonial-slider {
+	  overflow: hidden;
+	  position: relative;
+	  max-width: 600px;
+	  margin: auto;
+	}
+
+	.testimonial-track {
+	  display: flex;
+	  transition: transform 0.5s ease-in-out;
+	}
+
+	.testimonial-card {
+	  min-width: 100%;
+	  background: white;
+	  padding: 20px;
+	  border-radius: 10px;
+	  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+	  margin: 10px;
+	}
+
+	.testimonial-name {
+	  font-weight: bold;
+	  color: #007bff;
+	}
+
+	/* Submit Button */
+	.btn-submit {
+	  width: 100%;
+	  padding: 12px;
+	  background: linear-gradient(135deg, #007bff, #0056b3);
+	  color: white;
+	  font-size: 18px;
+	  border: none;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: 0.3s;
+	}
+
+	.btn-submit:hover {
+	  background: linear-gradient(135deg, #0056b3, #003580);
+	}
+
+    /* -------------------------- 
+       Write a Review Section
+    --------------------------- */
+    /* Review Section Styling */
+	.review-section {
+	  background: #f9f9f9;
+	  padding: 60px 20px;
+	  text-align: center;
+	}
+
+	.container-review {
+	  max-width: 600px;
+	  margin: 0 auto;
+	  background: white;
+	  padding: 40px;
+	  border-radius: 12px;
+	  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	}
+
+	.review-heading {
+	  font-size: 26px;
+	  font-weight: bold;
+	  color: #333;
+	  margin-bottom: 10px;
+	}
+
+	.review-text {
+	  font-size: 16px;
+	  color: #666;
+	  margin-bottom: 25px;
+	}
+
+	/* Form Styling */
+	.form-group {
+	  margin-bottom: 15px;
+	}
+
+	input, select, textarea {
+	  width: 100%;
+	  padding: 12px;
+	  border: 1px solid #ccc;
+	  border-radius: 8px;
+	  font-size: 16px;
+	  transition: 0.3s;
+	}
+
+	input:focus, select:focus, textarea:focus {
+	  border-color: #007bff;
+	  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+	  outline: none;
+	}
+
+	/* Dropdown Select */
+	select {
+	  background: white;
+	  cursor: pointer;
+	}
+
+	/* Submit Button */
+	.btn-submit {
+	  width: 100%;
+	  padding: 12px;
+	  background: linear-gradient(135deg, #007bff, #0056b3);
+	  color: white;
+	  font-size: 18px;
+	  border: none;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: 0.3s;
+	}
+
+	.btn-submit:hover {
+	  background: linear-gradient(135deg, #0056b3, #003580);
+	}
+
+    /* -------------------------- 
+       Footer 
+    --------------------------- */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #333;
+      color: #fff;
+      margin-top: 2rem;
+    }
+
+    /* -------------------------- 
+       Responsive Adjustments
+    --------------------------- */
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-image img.main-hero {
+        width: 100%;
+      }
+      .floating-icon {
+        display: none; /* Hide floating icons on smaller screens if desired */
+      }
+      .testimonial-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .testimonial-card {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="contact-info">
+      <span>📞 (+91)-9502795478</span>
+      <span>✉ testCrafted.com@gmail.com</span>
+    </div>
+    <div>
+      <!-- You can add additional info or social icons here if needed -->
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+	<header>
+		<div class="logo">
+			<h1>Test Crafted</h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="curriculum/website.html">Home</a></li>
+				<li class="dropdown">
+					<a href="#courses" class="dropbtn">Courses <span class="arrow">&#9662;</span></a>
+					<ul class="dropdown-content">
+						<li><a href="java_backend_developer.html"><i class="fas fa-code"></i> Java Backend Development</a></li>
+						<li><a href="manual_testing.html"><i class="fas fa-vial"></i> Manual Testing</a></li>
+						<li><a href="automation_testing.html"><i class="fas fa-robot"></i> Automation Testing</a></li>
+					</ul>
+				</li>
+				<li><a href="#testimonials">Testimonials</a></li>
+				<li><a href="#write-review">Write Review</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><a href="#" class="register-btn" onclick="openModal()">Register</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Registration Modal -->
+	<div class="modal" id="registerModal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<h2>Register</h2>
+			<form id="registerForm">
+				<input type="text" id="name" name="name" placeholder="Name" required>
+				<input type="text" id="education" name="education" placeholder="Education" required>
+				<input type="text" id="course" name="course" placeholder="Course" required>
+				<input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+				<input type="email" id="email" name="email" placeholder="Email" required>
+				<textarea id="query" name="query" placeholder="Your Query"></textarea>
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Success Message -->
+	<div class="success-message" id="successMessage">Registration successful! We will get back to you soon!</div>
+
+  <!-- Hero Section -->
+	<section class="hero" id="hero">
+	  <div class="hero-container">
+		<div class="hero-text">
+		  <h1 class="hero-heading">ACE Your Skills</h1>
+		  <ul class="hero-list">
+			<li>✔ Online classes with batches</li>
+			<li>✔ Real-time projects, Placement & Job assistance</li>
+			<li>✔ Job Oriented Training program</li>
+		  </ul>
+		  <a href="#courses" class="hero-button">Explore Courses</a>
+		</div>
+		<div class="hero-image">
+		  <img src="images/main_image.jpg" alt="Hero" class="main-hero" />
+		</div>
+	  </div>
+	</section>
+
+  <!-- Courses Section -->
+  <section class="courses" id="courses">
+    <h2>Our Courses</h2>
+    <div class="course-cards">
+      <!-- Java Backend Development -->
+      <div class="course-card">
+	  <img src="images/java_backend_developer.jpg" alt="Chalkboard Teacher Logo" width="200" height="200"  style="display: block; margin: 0 auto;"/>
+        <h3>Java Backend Development</h3>
+        <p>
+          Accelerate your growth with a Java Backend program that blends in-depth curriculum 
+          and expert mentorship from Product-Based companies.
+        </p>
+        <div class="btn-row">
+        <a a href="curriculum/java_backend_developer.html" href="#" class="btn-modern">
+          <i class="fas fa-book-open"></i> Curriculum
+        </a>
+        <a href="#" class="btn-modern">
+          <i class="fas fa-info-circle"></i> Enquire
+        </a>
+      </div>
+      </div>
+      <!-- Manual Testing -->
+      <div class="course-card">
+	  <img src="images/manual_testing.jpg" alt="Chalkboard Teacher Logo" width="300" height="200"  style="display: block; margin: 0 auto;"/>
+        <h3>Manual Testing</h3>
+        <p>
+          Understand the fundamentals of software testing, create test cases, and learn how 
+          to effectively track and report defects with expert mentorship.
+        </p>
+        <div class="btn-row">
+        <a href="curriculum/manual_testing.html" href="#" class="btn-modern">
+          <i class="fas fa-book-open"></i> Curriculum
+        </a>
+        <a href="#" class="btn-modern">
+          <i class="fas fa-info-circle"></i> Enquire
+        </a>
+      </div>
+      </div>
+      <!-- Automation Testing -->
+      <div class="course-card">
+	  <img src="images/automation_testing.jpg" alt="Chalkboard Teacher Logo" width="200" height="200"  style="display: block; margin: 0 auto;"/>
+        <h3>Automation Testing</h3>
+        <p>
+          Discover the power of automation with leading tools and frameworks, reducing testing 
+          time and improving product quality—led by industry experts.
+        </p>
+        <div class="btn-row">
+        <a href="curriculum/automation_testing.html" href="#" class="btn-modern">
+          <i class="fas fa-book-open"></i> Curriculum
+        </a>
+        <a href="#" class="btn-modern">
+          <i class="fas fa-info-circle"></i> Enquire
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Trending Course Section -->
+  <section class="trending-courses" id="trending">
+	  <div class="trending-container">
+		<h2>Our core Offerings</h2>
+		<p>Widely Researched, Cherry Picked and Industry Approved Courses</p>
+		
+		<div class="trending-cards">
+		  <!-- Card 1 -->
+		  <div class="trending-card">
+			<!-- Replace with an actual icon or image -->
+			<img src="images/chalkboard-teacher.png" alt="Chalkboard Teacher Logo" width="60" height="60" />
+			<h3>Live Projects With Experts Mentor</h3>
+			<p>
+			 We provide live project opportunities and the chance to participate in project design, all supported by our industry partners, businesses, and community organizations.
+			</p>
+		  </div>
+
+		  <!-- Card 2 -->
+		  <div class="trending-card">
+			<img src="images/Video Call.png" alt="Video Call Logo" width="60" height="60" />
+			<h3>Virtual Online Classrooms</h3>
+			<p>
+			  We leverage advanced web conferencing with real-time screen sharing to deliver interactive and engaging live online classes.
+			</p>
+		  </div>
+		  
+		  <!-- Card 3 -->
+		  <div class="trending-card">
+			<img src="images/Job.png" alt="Job Logo" width="60" height="60" />
+			<h3>Placement & Job Assistance</h3>
+			<p>
+			  Receive interview tips, resume-building guidance, and the tools you need to secure your dream role in the tech industry.
+			</p>
+		  </div>
+
+		  <!-- Card 4 -->
+		  <div class="trending-card">
+			<img src="images/24-hours-service.png" alt="24X7 Logo" width="60" height="60" />
+			<h3>24/7 Support</h3>
+			<p>
+			  Got a question? Our 24/7 support team can assist you anytime, ensuring you stay focused on learning without interruption.
+			</p>
+		  </div>
+
+		</div>
+	  </div>
+   </section>
+
+
+  <!-- Testimonials Section -->
+	<section class="testimonials" id="testimonials">
+	  <div class="container">
+		<h2>Testimonials</h2>
+		<p>See what our students have to say about their learning experience.</p>
+
+		<!-- Testimonial Slider -->
+		<div class="testimonial-slider">
+		  <div class="testimonial-track">
+			<!-- Dynamic testimonials will be inserted here -->
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+  <!-- Write a Review Section -->
+	<section class="review-section" id="write-review">
+	  <div class="container-review">
+		<h2 class="review-heading">Want to write a review?</h2>
+		<p class="review-text">
+		  Your reviews help our new students confirm their credibility to join us and learn skills to carve out their future.
+		</p>
+
+		<form id="reviewForm">
+		  <div class="form-group">
+			<input type="text" id="name" name="name" placeholder="Full Name" required />
+		  </div>
+		  <div class="form-group">
+			<input type="email" id="email" name="email" placeholder="Email Address" required />
+		  </div>
+		  <div class="form-group">
+			<input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+		  </div>
+		  <div class="form-group">
+			<select id="course" name="course" required>
+			  <option value="" disabled selected>Select Course</option>
+			  <option value="java-backend">Java Backend Development</option>
+			  <option value="manual-testing">Manual Testing</option>
+			  <option value="automation-testing">Automation Testing</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+			<textarea id="message" name="message" rows="4" placeholder="Write your review..." required></textarea>
+		  </div>
+		  <button type="submit" class="btn-submit">Submit Review</button>
+		</form>
+	  </div>
+	</section>
+
+  <!-- Contact Section -->
+  <section class="courses" id="contact">
+    <h2>Contact Us</h2>
+    <p>Interested in our courses or have any questions? Feel free to reach out.</p>
+    <p><strong>Phone:</strong> 9502795478 &nbsp;|&nbsp; <strong>Email:</strong> testCrafted@gmail.com</p>
+    <!-- Add a contact form if you want -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Test Crafted. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript to Add New Reviews Dynamically -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const reviewForm = document.getElementById("reviewForm");
+  const testimonialTrack = document.querySelector(".testimonial-track");
+
+  // Sample Testimonials
+  const testimonials = [
+    { name: "John Doe", course: "Java Backend", message: "Great learning experience!" },
+    { name: "Jane Smith", course: "Frontend Development", message: "The projects were amazing!" },
+    { name: "Mike Johnson", course: "DSA", message: "Helped me ace my coding interviews!" },
+  ];
+
+  function addTestimonial(name, course, message) {
+    const testimonialHTML = `
+      <div class="testimonial-card">
+        <p>"${message}"</p>
+        <p class="testimonial-name">- ${name}, ${course}</p>
+      </div>
+    `;
+    testimonialTrack.innerHTML += testimonialHTML;
+  }
+
+  // Load initial testimonials
+  testimonials.forEach((t) => addTestimonial(t.name, t.course, t.message));
+
+  // Handle Form Submission
+  reviewForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const course = document.getElementById("course").value;
+    const message = document.getElementById("message").value;
+
+    addTestimonial(name, course, message);
+
+    // Reset form
+    reviewForm.reset();
+  });
+
+  // Auto Slide Testimonials
+  let index = 0;
+  function slideTestimonials() {
+    index++;
+    if (index >= testimonialTrack.children.length) {
+      index = 0;
+    }
+    testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  setInterval(slideTestimonials, 3000); // Auto-slide every 3 seconds
+});
+	
+	// Open Modal
+	function openModal() {
+		document.getElementById("registerModal").style.display = "block";
+	}
+
+	// Close Modal
+	function closeModal() {
+		document.getElementById("registerModal").style.display = "none";
+	}
+
+	// Form Submission
+	document.getElementById("registerForm").addEventListener("submit", function(event) {
+		event.preventDefault(); // Prevent default form submission
+
+		// Form Data
+		const formData = new FormData(this);
+
+		// Submit form using FormSubmit.io (Replace with your email)
+		fetch("https://formsubmit.co/padala.deepu@gmail.com", {
+			method: "POST",
+			body: formData
+		})
+		.then(response => {
+			if (response.ok) {
+				// Show success message
+				document.getElementById("successMessage").style.display = "block";
+
+				// Hide success message after 3 seconds
+				setTimeout(() => {
+					document.getElementById("successMessage").style.display = "none";
+				}, 3000);
+
+				// Reset form fields
+				this.reset();
+
+				// Close the modal after submission
+				closeModal();
+			} else {
+				alert("Form submission failed. Please try again.");
+			}
+		})
+		.catch(error => {
+			console.error("Error:", error);
+		});
+	});
+	
+  </script>
+
+</body>
+</html>
